@@ -44,7 +44,7 @@ class Pirate {
 
     die() {
         this.dead = true;
-        console.log("He's dead.");
+        //console.log("He's dead.");
     }
 
     checkDead() {

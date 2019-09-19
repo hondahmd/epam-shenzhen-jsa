@@ -3,9 +3,10 @@
 const Pirate = require('./pirate');
 
 class Ship {
-    constructor() {
+    constructor(name) {
         this.pirates = [];
         this.captain = 0;
+        this.name = name;
     }
 
     fillShip() {
@@ -20,6 +21,10 @@ class Ship {
             return !pirate.getDead();
         });
         return alive.length;
+    }
+
+    getShipName() {
+        return this.name;
     }
 
     showCrew() {

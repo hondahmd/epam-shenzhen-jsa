@@ -4,12 +4,17 @@ const Ship = require('./ship');
 const Pirate = require('./pirate');
 
 class Armada {
-    constructor() {
+    constructor(name) {
         this.ships = [];
+        this.name = name;
     }
 
     getShipNumber() {
         return this.ships.length;
+    }
+
+    getArmadaName() {
+        return this.name;
     }
 
     getNthShip(index) {
