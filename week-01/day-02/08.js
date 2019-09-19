@@ -1,29 +1,12 @@
 'use strict';
 
-function drawLine(i, half) {
-    let line = '';
-    for (let j = 0; j < 2 * half - 1; j++) {
-        if (j < half - i - 1 || j > half + i - 1) {
-            line += ' ';
-        } else {
-            line += '*';
-        }
-    }
-    return line;
-}
-
 const lineCount = 7;
-let half = Math.round(lineCount / 2);
-let result = new Array(lineCount);
+let half = lineCount / 2;
 
-for (let i = 0; i < half; i++) {
-    result[i] = drawLine(i, half);
+for (let i = 0; i < lineCount; i++) {
+    if (i < half) {
+        console.log(' '.repeat(Math.round(half) -i -1) + '*'.repeat(2 * (i + 1) - 1));
+    } else {
+        console.log(' '.repeat(i - Math.floor(half)) + '*'.repeat(2 * (lineCount - i) - 1));
+    }
 }
-
-for (let i = half - 1; i >= 0; i--) {
-    result[lineCount - i - 1] = drawLine(i, half);
-}
-
-result.forEach(function(item) {
-    console.log(item);
-});
