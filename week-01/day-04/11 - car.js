@@ -18,8 +18,8 @@ class Car {
         return this.capacity - this.gasAmount;
     }
 
-    fill() {
-        this.gasAmount = this.capacity;
+    fill(number) {
+        this.gasAmount += number;
     }
 }
 

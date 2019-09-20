@@ -33,14 +33,6 @@ class DiceSet {
       return this.dice[index];
     }
   }
-
-  checkNotSix() {
-    let result = [];
-    this.dice.forEach((value, index) => {
-      if (value !== 6) result.push(index);
-    })
-    return result;
-  }
 }
 
 const diceSet = new DiceSet();
@@ -49,12 +41,18 @@ console.log(diceSet.getCurrent());
 
 console.log('------------------');
 
-let notSix = diceSet.checkNotSix();
-while (notSix.length !== 0) {
-  notSix.forEach(value => {
-    diceSet.reroll(value);
+let sixNumber = 0;
+let currentSet = diceSet.getCurrent();
+while (sixNumber !== currentSet.length) {
+  sixNumber = 0;
+  currentSet.forEach(dice => {
+    if (dice !== 6) {
+      diceSet.reroll(currentSet.indexOf(dice));
+    } else {
+      sixNumber++;
+    }
   })
-  notSix = diceSet.checkNotSix();
-  console.log(diceSet.getCurrent());
+  currentSet = diceSet.getCurrent();
+  console.log(currentSet);
   console.log('------------------');
 }

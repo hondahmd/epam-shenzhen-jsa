@@ -6,10 +6,9 @@ class SharpieSet {
     }
 
     countUsable() {
-        let usable = this.sharpies.filter(sharpie => {
+        return this.sharpies.filter(sharpie => {
             return sharpie.getInkAmount() > 0;
-        })
-        return usable.length;
+        }).length;
     }
 
     removeTrash() {

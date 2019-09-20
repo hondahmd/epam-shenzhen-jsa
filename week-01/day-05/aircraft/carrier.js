@@ -19,7 +19,9 @@ class Carrier {
 
     fill() {
         try {
-            if (this.ammo <= 0) throw "no Ammo!";
+            if (this.ammo <= 0) {
+                throw "no Ammo!";
+            }
         } catch(error) {
             console.log(error);
         }
@@ -41,12 +43,12 @@ class Carrier {
         carrier.aircrafts.forEach(aircaft => {
             carrier.makeDamage += aircaft.fight();
         })
-        this.health -= carrier.makeDamage;
-        carrier.health -= this.makeDamage;
+        this.health -= carrier.getDamage();
+        carrier.health -= this.getDamage();
     }
 
     getStatus() {
-        console.log(`HP: ${this.health}, Aircraft count: ${this.aircrafts.length}, Ammo Storage: ${this.ammo}, Total Damage: ${this.makeDamage}`);
+        console.log(`HP: ${this.health}, Aircraft count: ${this.aircrafts.length}, Ammo Storage: ${this.ammo}, Total Damage: ${this.getDamage()}`);
         console.log("Aircrafts:");
         this.aircrafts.forEach(aircraft => {
             console.log(aircraft.getStatus());

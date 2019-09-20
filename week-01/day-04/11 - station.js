@@ -6,8 +6,12 @@ class Station {
     }
 
     refill(car) {
-        this.gasAmount -= car.getEmpty();
-        car.fill();
+        if (car.getEmpty() < this.gasAmount) {
+            this.gasAmount -= car.getEmpty();
+            car.fill(car.getEmpty());
+        } else {
+            car.fill(this.gasAmount);
+        }
     }
 
     getGasAmount() {
