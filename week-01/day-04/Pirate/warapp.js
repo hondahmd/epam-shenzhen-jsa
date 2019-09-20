@@ -10,13 +10,16 @@ class WarApp {
         this.armada2 = new Armada(name2);
     }
 
+    prepareArmada(armada) {
+        armada.fillShips();
+        console.log(`${armada.getArmadaName()} has ${armada.getShipNumber()} ships`);
+        return armada;
+    }
+
     haveWar() {
-        this.armada1.fillShips();
-        this.armada2.fillShips();
-        console.log(`${this.armada1.getArmadaName()} has ${this.armada1.getShipNumber()} ships`);
-        console.log(`${this.armada2.getArmadaName()} has ${this.armada2.getShipNumber()} ships`);
-        let result = this.armada1.war(this.armada2);
-        if (result) {
+        let armada1 = this.prepareArmada(this.armada1);
+        let armada2 = this.prepareArmada(this.armada2);
+        if (armada1.war(armada2)) {
             console.log(`${this.armada1.getArmadaName()} won!`);
         } else {
             console.log(`${this.armada2.getArmadaName()} won!`);

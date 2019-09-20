@@ -9,17 +9,20 @@ class BattelApp {
         this.ship2 = new Ship(ship2);
     }
 
+    prepareShip(ship) {
+        ship.fillShip();
+        console.log(`${ship.getShipName()}:`);
+        ship.showCrew();
+        return ship;
+    }
+
     battle() {
-        this.ship1.fillShip();
-        console.log(`${this.ship1.getShipName()}:`)
-        this.ship1.showCrew();
-        this.ship2.fillShip();
-        console.log(`${this.ship2.getShipName()}:`)
-        this.ship2.showCrew();
-        if (this.ship1.battle(this.ship2)) {
-            console.log(`${this.ship1.getShipName()} won!`);
+        let ship1 = this.prepareShip(this.ship1);
+        let ship2 = this.prepareShip(this.ship2);
+        if (ship1.battle(ship2)) {
+            console.log(`${ship1.getShipName()} won!`);
         } else {
-            console.log(`${this.ship2.getShipName()} won!`);
+            console.log(`${ship2.getShipName()} won!`);
         }
         /*
         console.log(`${this.ship1.getShipName()} condition:`);
