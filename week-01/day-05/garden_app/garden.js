@@ -18,7 +18,7 @@ class Garden {
             this.trees.push(plant);
         }
         if (plant.needWater()) {
-            this.thirstyPlants++;
+            this.thirstyPlants++; // every time add a plant, check whether it is thirsty.
         }
     }
 
@@ -31,20 +31,21 @@ class Garden {
         })
     }
 
+    waterOne(plant, water) {
+        if (plant.needWater()) {
+            plant.water(water);
+            if (!plant.needWater()) {this.thirstyPlants--;} // if it is not thirsty after watering, reduce the number of thirsty plants.
+        }
+    }
+
     waterAll(number) {
         console.log(`\nWatering with ${number}`);
         let averageWater = number / this.thirstyPlants;
         this.flowers.forEach(flower => {
-            if (flower.needWater()) {
-                flower.water(averageWater);
-                if (!flower.needWater()) {this.thirstyPlants--;}
-            }
+            this.waterOne(flower, averageWater);
         })
         this.trees.forEach(tree => {
-            if (tree.needWater()) {
-                tree.water(averageWater);
-                if (!tree.needWater()) {this.thirstyPlants--;}
-            }
+            this.waterOne(tree, averageWater);
         })
     }
 }

@@ -1,10 +1,11 @@
 'use strict';
 
 class Carrier {
-    constructor(ammo, health) {
-        this.ammo = ammo;
-        this.health = health;
+    constructor(bango) {
+        this.ammo = 0;
+        this.health = 0;
         this.aircrafts = [];
+        this.bango = bango;
         this.makeDamage = 0;
     }
 
@@ -15,6 +16,11 @@ class Carrier {
             this.aircrafts.push(aircraft);
         }
 
+    }
+
+    init() {
+        this.ammo = Math.round(Math.random() * 10000 + 1);
+        this.health = Math.round(Math.random() * 10000 + 1);
     }
 
     fill() {
