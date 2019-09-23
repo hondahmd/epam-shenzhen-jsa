@@ -1,14 +1,14 @@
-import StringedInstrument from './stringedinstrument';
+import StringedInstrument from "./stringedinstrument";
 
 class BassGuitar extends StringedInstrument {
-    private soundLike : string;
+    private soundLike: string;
 
-    constructor(numberOfStrings : number = 4, sound : string = "Duum-duum-duum") {
+    constructor(numberOfStrings: number = 4, sound: string = "Duum-duum-duum") {
         super("Bass Guitar", numberOfStrings);
         this.soundLike = sound;
     }
 
-    sound() {
+    public sound() {
         console.log(`${this.getName()}, a ${this.getStrings()}-stringed instrument that goes ${this.soundLike}`);
     }
 }

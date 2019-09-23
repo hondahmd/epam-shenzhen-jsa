@@ -9,17 +9,17 @@ abstract class Vehicle {
         this.weight = weight;
     }
 
-    getName(): string {
+    public getName(): string {
         return this.name;
     }
 
-    getSpeed(): number {
+    public getSpeed(): number {
         return this.speed;
     }
 
-    getWeight(): number {
+    public getWeight(): number {
         return this.weight;
     }
-} 
+}
 
 export default Vehicle;

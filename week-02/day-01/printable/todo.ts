@@ -1,15 +1,15 @@
-import Printable from './printable';
+import Printable from "./printable";
 
 class Todo implements Printable {
-    task: string;
-    time: number;
+    public task: string;
+    public time: number;
 
     constructor(task: string, time: number) {
         this.task = task;
         this.time = time;
     }
 
-    printAllFields() {
+    public printAllFields() {
         console.log(`Task ${this.task} needs ${this.time} minutes to be completed`);
     }
 }

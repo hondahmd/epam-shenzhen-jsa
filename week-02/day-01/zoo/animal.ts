@@ -13,23 +13,23 @@ abstract class Animal {
         this.moveWay = moveWay;
     }
 
-    getName(): string {
+    public getName(): string {
         return this.name;
     }
 
-    eat(): void {
+    public eat(): void {
         console.log(`${this.name} eats ${this.food}.`);
-    };
+    }
 
-    rest(): void {
+    public rest(): void {
         console.log(`${this.name} rests in a ${this.restWay} way.`);
-    };
+    }
 
-    move(): void {
-        console.log(`${this.name} moves in a ${this.moveWay} way.`)
-    };
+    public move(): void {
+        console.log(`${this.name} moves in a ${this.moveWay} way.`);
+    }
 
-    abstract breed(): string;
+    public abstract breed(): string;
 }
 
 export default Animal;

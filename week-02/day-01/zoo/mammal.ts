@@ -1,4 +1,4 @@
-import Animal from './animal';
+import Animal from "./animal";
 
 class Mammal extends Animal {
     private breedWay: string;
@@ -8,15 +8,15 @@ class Mammal extends Animal {
         this.breedWay = breedWay;
     }
 
-    breed(): string {
+    public breed(): string {
         return this.breedWay;
     }
 
-    haveFur(): void {
+    public haveFur(): void {
         console.log(`${this.getName()} has fur.`);
     }
 
-    bloodYstem(): void {
+    public bloodYstem(): void {
         console.log(`${this.getName()} has complex blood system.`);
     }
 }

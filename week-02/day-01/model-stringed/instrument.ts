@@ -1,13 +1,13 @@
 abstract class Instrument {
     private instrument: string;
-    
-    constructor(name : string) {
+
+    constructor(name: string) {
         this.instrument = name;
     }
 
-    abstract play();
+    public abstract play();
 
-    getName(): string {
+    public getName(): string {
         return this.instrument;
     }
 }

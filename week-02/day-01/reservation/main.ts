@@ -1,5 +1,5 @@
-import Reservation from './reservation';
+import Reservation from "./reservation";
 
-let reservation = new Reservation(8);
+const reservation = new Reservation(8);
 
 reservation.generateBooking();

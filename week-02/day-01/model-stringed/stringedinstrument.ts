@@ -1,20 +1,20 @@
-import Instrument from './instrument';
+import Instrument from "./instrument";
 
 abstract class StringedInstrument extends Instrument {
     private numberOfStrings: number;
 
-    constructor(name : string, numberOfStrings : number) {
+    constructor(name: string, numberOfStrings: number) {
         super(name);
         this.numberOfStrings = numberOfStrings;
     }
 
-    abstract sound();
+    public abstract sound();
 
-    getStrings(): number {
+    public getStrings(): number {
         return this.numberOfStrings;
     }
 
-    play() {
+    public play() {
         this.sound();
     }
 }
