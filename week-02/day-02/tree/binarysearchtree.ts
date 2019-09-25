@@ -40,37 +40,10 @@ class BinarySearchTree implements Tree {
         return iterator;
     }
 
-    private searchSwapNode(node: TreeNode): TreeNode {
-        let iterator = node;
-        let lChild = node.getLeftChild();
-        let rChild = node.getRightChild();
-        if (lChild === null && rChild === null) {
-            iterator = null;
-        } else if (lChild !== null && rChild !== null) {
-            iterator = rChild;
-            while(iterator.getLeftChild() !== null) {
-                iterator = iterator.getLeftChild();
-            }
-        } else {
-            if (lChild !== null) {
-                iterator = lChild;
-            } else {
-                iterator = rChild;
-            }
-        }
-        return iterator;
-    }
-
     private swapNodes(first: TreeNode, second: TreeNode): void {
-        let parent = first.getParent();
-        let lChild = first.getLeftChild();
-        let rChild = first.getRightChild();
-        first.setLeftChild(second.getLeftChild());
-        first.setRightChild(second.getRightChild());
-        first.setParent(second.getParent());
-        second.setLeftChild(lChild);
-        second.setRightChild(rChild);
-        second.setParent(parent);
+        let tmp = first.getValue();
+        first.setValue(second.getValue());
+        second.setValue(tmp);
     }
 
     private checkLorR(node: TreeNode): boolean {
@@ -86,13 +59,50 @@ class BinarySearchTree implements Tree {
         }
     }
 
-    private deleteNode(deleteNode: TreeNode): void {
+    private deleteNoChildNode(deleteNode: TreeNode): void {
         if (this.checkLorR(deleteNode)) {
             deleteNode.getParent().setLeftChild(null);
             deleteNode = null;
         } else {
             deleteNode.getParent().setRightChild(null);
             deleteNode = null;
+        }
+    }
+
+    private deleteOneChildNode(deleteNode: TreeNode): void {
+        if (deleteNode.getLeftChild() !== null) {
+            if (this.checkLorR(deleteNode)) {
+                deleteNode.getParent().setLeftChild(deleteNode.getLeftChild());
+                deleteNode.getLeftChild().setParent(deleteNode.getParent());
+                deleteNode = null;
+            } else {
+                deleteNode.getParent().setRightChild(deleteNode.getLeftChild());
+                deleteNode.getRightChild().setParent(deleteNode.getParent());
+                deleteNode = null;
+            }
+        } else {
+            if (this.checkLorR(deleteNode)) {
+                deleteNode.getParent().setLeftChild(deleteNode.getRightChild());
+                deleteNode.getLeftChild().setParent(deleteNode.getParent());
+                deleteNode = null;
+            } else {
+                deleteNode.getParent().setRightChild(deleteNode.getRightChild());
+                deleteNode.getRightChild().setParent(deleteNode.getParent());
+                deleteNode = null;
+            }
+        }
+    }
+
+    private deleteTwoChildNode(deleteNode: TreeNode): void {
+        let swapNode = deleteNode.getRightChild();
+        while (swapNode.getLeftChild() !== null) {
+            swapNode = swapNode.getLeftChild();
+        }
+        this.swapNodes(swapNode, deleteNode);
+        if (swapNode.getLeftChild() === null && swapNode.getRightChild() === null) {
+            this.deleteNoChildNode(swapNode);
+        } else {
+            this.deleteOneChildNode(swapNode);
         }
     }
 
@@ -121,25 +131,12 @@ class BinarySearchTree implements Tree {
 
     public remove(value: string): void {
         let deleteNode = this.searchNode(value);
-        let swapNode = this.searchSwapNode(deleteNode);
-        if (swapNode === null) {
-            this.deleteNode(deleteNode);
-        } else if (swapNode === deleteNode.getLeftChild() || swapNode === deleteNode.getRightChild()) {
-            if (this.checkLorR(deleteNode)) {
-                deleteNode.getParent().setLeftChild(swapNode);
-            } else {
-                deleteNode.getParent().setRightChild(swapNode);
-            }
-            deleteNode = null;
+        if (deleteNode.getLeftChild() === null && deleteNode.getRightChild() === null) {
+            this.deleteNoChildNode(deleteNode);
+        } else if (deleteNode.getLeftChild() !== null && deleteNode.getRightChild() !== null) {
+            this.deleteTwoChildNode(deleteNode);
         } else {
-            this.swapNodes(deleteNode, swapNode);
-            swapNode = this.searchSwapNode(deleteNode);
-            if (swapNode === null) {
-                this.deleteNode(deleteNode);
-            } else {
-                this.swapNodes(deleteNode, swapNode);
-                this.deleteNode(deleteNode);
-            }
+            this.deleteOneChildNode(deleteNode);
         }
     }
 

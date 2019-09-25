@@ -25,6 +25,10 @@ class TreeNode {
         this.parent = parent;
     }
 
+    public setValue(value: string): void {
+        this.value = value;
+    }
+
     public getLeftChild(): TreeNode {
         return this.lChild;
     }
