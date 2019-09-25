@@ -60,6 +60,18 @@ class BinarySearchTree implements Tree {
     }
 
     private deleteNoChildNode(deleteNode: TreeNode): void {
+        if (deleteNode === this._root) {
+            if (deleteNode.getLeftChild() !== null) {
+                this._root = deleteNode.getLeftChild();
+                deleteNode.getLeftChild().setParent(null);
+                deleteNode = null;
+            } else {
+                this._root = deleteNode.getRightChild();
+                deleteNode.getRightChild().setParent(null);
+                deleteNode = null;
+            }
+            return;
+        }
         if (this.checkLorR(deleteNode)) {
             deleteNode.getParent().setLeftChild(null);
             deleteNode = null;
@@ -70,6 +82,18 @@ class BinarySearchTree implements Tree {
     }
 
     private deleteOneChildNode(deleteNode: TreeNode): void {
+        if (deleteNode === this._root) {
+            if (deleteNode.getLeftChild() !== null) {
+                this._root = deleteNode.getLeftChild();
+                deleteNode.getLeftChild().setParent(null);
+                deleteNode = null;
+            } else {
+                this._root = deleteNode.getRightChild();
+                deleteNode.getRightChild().setParent(null);
+                deleteNode = null;
+            }
+            return;
+        }
         if (deleteNode.getLeftChild() !== null) {
             if (this.checkLorR(deleteNode)) {
                 deleteNode.getParent().setLeftChild(deleteNode.getLeftChild());

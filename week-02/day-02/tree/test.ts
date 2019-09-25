@@ -20,5 +20,7 @@ binarysearchtree.remove('15');
 //console.log(binarysearchtree.search('1'));
 //console.log(binarysearchtree.search('0'));
 for(let i = 0; i < 17; i++) {
-    console.log(binarysearchtree.search(i.toString()));
+    if (!binarysearchtree.search(i.toString())) {
+        console.log(`${i} dose not exist!`)
+    }
 }
