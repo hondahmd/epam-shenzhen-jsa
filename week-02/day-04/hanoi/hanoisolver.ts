@@ -25,7 +25,6 @@ class HanoiSolver {
 
     private checkLayer(): boolean {
         for (let node = 0; node < this.allNodes.length; node++) {
-            console.log(this.allNodes[node]);
             if (this.arrayEqual(this.allNodes[node][2], this.finalState)) {
                 return true;
             }
@@ -72,12 +71,14 @@ class HanoiSolver {
         } else if (numberB > numberC) {
             this.generateNewNode(parent, 2, 1);
         }
-        this.allNodes.shift();
     }
 
     private generateNewLayer(): void {
         for (let node = 0; node < this.layerLength; node++) {
             this.generateNewNodes(this.allNodes[node]);
+        }
+        for (let node = 0; node < this.layerLength; node++) {
+            this.allNodes.shift();
         }
     }
 
@@ -90,11 +91,9 @@ class HanoiSolver {
 
     public getSteps(): number {
         while (!this.checkLayer()) {
-            console.log(this.layerHeight);
             this.generateNewLayer();
             this.layerLength = this.layerLength * 3;
             this.layerHeight++;
-            console.log('\n\n\n');
         }
         return this.layerHeight;
     }
