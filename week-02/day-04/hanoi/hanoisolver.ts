@@ -5,12 +5,14 @@ class HanoiSolver {
     private layerLength: number;
     private allNodes: number[][][];
     private finalState: number[];
+    private finalRoute: number[];
 
     constructor() {
         this.layerHeight = 0;
         this.layerLength = 1;
         this.allNodes = [[[]]];
         this.finalState = [];
+        this.finalRoute = [];
     }
 
     private arrayEqual(array1: number[], array2: number[]): boolean {
@@ -26,6 +28,7 @@ class HanoiSolver {
     private checkLayer(): boolean {
         for (let node = 0; node < this.allNodes.length; node++) {
             if (this.arrayEqual(this.allNodes[node][2], this.finalState)) {
+                this.finalRoute = this.allNodes[node][3];
                 return true;
             }
         }
@@ -36,7 +39,8 @@ class HanoiSolver {
         let newA = new Array();
         let newB = new Array();
         let newC = new Array();
-        let newParent = [newA, newB, newC];
+        let route = new Array();
+        let newParent = [newA, newB, newC, route];
         for (let i = 0; i < parent.length; i++) {
             for (let j = 0; j < parent[i].length; j++) {
                 if (i === 0) {
@@ -45,9 +49,12 @@ class HanoiSolver {
                     newB.push(parent[i][j]);
                 } else if (i === 2) {
                     newC.push(parent[i][j]);
+                } else if (i === 3) {
+                    route.push(parent[i][j]);
                 }
             }
         }
+        newParent[3].push(parent[fromTower][0] * 100 + fromTower * 10 + toTower);
         newParent[toTower].unshift(newParent[fromTower].shift());
         this.allNodes.push(newParent);
     }
@@ -82,8 +89,19 @@ class HanoiSolver {
         }
     }
 
+    public getRoute(): string[] {
+        let result = [];
+        this.finalRoute.forEach(step => {
+            let disk = Math.floor(step / 100);
+            let from = Math.floor(step / 10) - disk * 10;
+            let to = step - disk * 100 - from * 10;
+            result.push(`${disk} ${String.fromCharCode(from + 65)} -> ${String.fromCharCode(to + 65)}`);
+        });
+        return result;
+    }
+
     public init(towerA: number[], towerB: number[], towerC: number[]): void {
-        this.allNodes = [[towerA, towerB, towerC]];
+        this.allNodes = [[towerA, towerB, towerC, []]];
         for (let i = 0; i < towerA.length + towerB.length + towerC.length; i++) {
             this.finalState.push(i + 1);
         }
