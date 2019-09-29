@@ -16,7 +16,7 @@ binarysearchtree.add('14');
 binarysearchtree.add('13');
 binarysearchtree.add('16');
 //binarysearchtree.remove('15');
-binarysearchtree.remove('15');
+binarysearchtree.remove('10');
 //console.log(binarysearchtree.search('1'));
 //console.log(binarysearchtree.search('0'));
 for(let i = 0; i < 17; i++) {

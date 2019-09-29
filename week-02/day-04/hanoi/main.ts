@@ -2,9 +2,11 @@
 
 import ReadFile from './readfile';
 import HanoiSolver from './hanoisolver';
+import ClassicHanoiSolver from './classichanoisolver';
 
 let readFile = new ReadFile();
 let hanoiSolver = new HanoiSolver();
+let classicYHanoiSolver = new ClassicHanoiSolver();
 let fileName = process.argv.splice(2);
 
 // read the file and get the towers
@@ -23,3 +25,7 @@ console.timeEnd('Solution found in');
 console.log(`Shortest solution is ${steps} steps:`);
 let result = hanoiSolver.getRoute();
 result.forEach(step => console.log(step));
+
+classicYHanoiSolver.init(towerA, towerB, towerC);
+classicYHanoiSolver.doTask();
+console.log(classicYHanoiSolver.getResult());
