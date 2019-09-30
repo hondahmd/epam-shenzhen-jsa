@@ -26,6 +26,11 @@ console.log(`Shortest solution is ${steps} steps:`);
 let result = hanoiSolver.getRoute();
 result.forEach(step => console.log(step));
 
+console.log('\nclassic hanoi tower:');
 classicYHanoiSolver.init(towerA, towerB, towerC);
+console.time('Solution found in');
 classicYHanoiSolver.doTask();
-console.log(classicYHanoiSolver.getResult());
+console.timeEnd('Solution found in');
+let results = classicYHanoiSolver.getResult();
+console.log(`Shortest solution is ${results.length} steps:`);
+results.forEach(step => console.log(step));

@@ -12,9 +12,10 @@ class ClassicHanoiSolver {
         this.towerB = [];
         this.towerC = [];
         this.finalState = [];
-        this.steps = [[]];
+        this.steps = [];
     }
 
+    // compare tow arrays
     private arrayEqual(array1: number[], array2: number[]): boolean {
         if (array1.length !== array2.length) { return false; }
         for (let i = 0; i < array1.length; i++) {
@@ -25,20 +26,25 @@ class ClassicHanoiSolver {
         return true;
     }
 
+    // simply transfer one disk
     private transOnce(fromTower: number[], toTower: number[]): void {
         toTower.unshift(fromTower.shift());
     }
 
+    // the step after transfer disk one
     private transOtherDisk(firstTower: number[], secondTower: number[], pos1: number, pos2: number): void {
         if (secondTower.length === 0 || firstTower[0] < secondTower[0]) {
+            if (firstTower.length <1) {return;}
             this.steps.push([firstTower[0], pos1, pos2]);
             this.transOnce(firstTower, secondTower);
         } else if (firstTower.length === 0 || firstTower[0] > secondTower[0]) {
+            if (secondTower.length <1) {return;}
             this.steps.push([secondTower[0], pos2, pos1]);
             this.transOnce(secondTower, firstTower);
         }
     }
 
+    // the structure of transfering the disks
     private completeTrans(firstTower: number[], secondTower: number[], thirdTower: number[]): void {
         let diskOne = 0;
         while (!this.arrayEqual(this.towerC, this.finalState)) {
@@ -60,43 +66,15 @@ class ClassicHanoiSolver {
 
     }
 
+    // translate single step
     private translateStep(step: number[]): string {
-        let from = '';
-        let to = '';
-        if (this.finalState.length % 2 === 0) {
-            if (step[1] === 0) {
-                from = 'A';
-            } else if (step[1] === 1) {
-                from = 'B';
-            } else if (step[1] === 2) {
-                from = 'C';
-            }
-            if (step[2] === 0) {
-                to = 'A';
-            } else if (step[2] === 1) {
-                to = 'B';
-            } else if (step[2] === 2) {
-                to = 'C';
-            }
-        } else {
-            if (step[1] === 0) {
-                from = 'A';
-            } else if (step[1] === 1) {
-                from = 'C';
-            } else if (step[1] === 2) {
-                from = 'B';
-            }
-            if (step[2] === 0) {
-                to = 'A';
-            } else if (step[2] === 1) {
-                to = 'C';
-            } else if (step[2] === 2) {
-                to = 'B';
-            }
-        }
-        return `${step[0]} ${from} -> ${to}`;
+        let second = this.finalState.length % 2 === 0 ? 'B' : 'C';
+        let third = this.finalState.length % 2 === 0 ? 'C' : 'B';
+        let positions = ['A', second, third];
+        return `${step[0]} ${positions[step[1]]} -> ${positions[step[2]]}`;
     }
-
+    
+    // translate all the steps
     private translateSteps(): string[] {
         let result = [];
         this.steps.forEach(step => {
