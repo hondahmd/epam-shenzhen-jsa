@@ -1,0 +1,24 @@
+.big-block {
+    display: flex;
+    width: 380px;
+    height: 340px;
+    background-color: #3887EF;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.block-words {
+    font-size: 36px;
+    color: #FFFFFF;
+    margin: 0 auto;
+    position: relative;
+    top: 35%;
+}
+
+.small-block {
+    width: 350px;
+    height: 150px;
+    margin: 0 auto;
+    display: flex;
+}

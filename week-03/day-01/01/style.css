@@ -1,0 +1,16 @@
+.block {
+    background-color: #00909E;
+    height: 145px;
+    width: 355px;
+    border-style: solid;
+    border-color: #78CC96;
+    border-width: 5px;
+    margin: 20px;
+}
+
+.block-words {
+    font-size: 36px;
+    color: #005665;
+    margin-left: 15px;
+    margin-top: 15px;
+}

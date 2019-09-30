@@ -1,0 +1,6 @@
+.block {
+    border-left-style: solid;
+    border-left-color: black;
+    padding-left: 20px;
+    font-size: 18px;
+}

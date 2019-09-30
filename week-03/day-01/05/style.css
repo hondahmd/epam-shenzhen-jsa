@@ -1,0 +1,21 @@
+.title {
+    color: #0027E4;
+}
+
+.second-title {
+    color: #FFA831;
+}
+
+.first-list {
+    list-style-type: square;
+    color: #0021B6;
+}
+
+.second-list {
+    list-style-type: disc;
+    color: black;
+}
+
+.order-list {
+    color: black;
+}
