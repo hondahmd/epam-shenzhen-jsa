@@ -1,0 +1,25 @@
+.big-block {
+    border: 1px solid #3887EF;
+    padding: 10px;
+    display: inline-block;
+    margin: 10px;
+}
+
+.small-block {
+    height:100px;
+    width:100px;
+    float: left;
+    margin: 10px;
+}
+
+.first-line {
+    background-color: #3887EF;
+}
+
+.second-container {
+    background-color: #FF614D;
+}
+
+.second-line {
+    background-color: #653976;
+}

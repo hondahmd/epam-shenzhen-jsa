@@ -1,0 +1,19 @@
+.container {
+    width: 300px;
+}
+
+.border {
+    border: 1px solid green;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.blue {
+    color: blue;
+}
+
+.yellow-bg {
+    background-color: yellow;  
+}

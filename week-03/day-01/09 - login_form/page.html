@@ -1,0 +1,33 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <form action="/login-feedback" method="post" class="form-container">
+        <div>
+            <p class="form-title">ACCOUNT LOGIN</p>
+        </div>
+        <div class="input-container">
+            <div class="input-title">
+                <label for="name">USERNAME</label>
+            </div>
+            <input type="text" id="name" name="user_name" maxlength="12" class="input-box">
+        </div>
+        <div class="input-container">
+            <div class="input-title">
+                <label for="psd">PASSWORD<br></label>
+            </div>
+            <input type="password" id="psd" name="user_password" maxlength="15" minlength="6" class="input-box">
+        </div>
+        <div class="forgot-container">
+            <a href="/forgot-password"  class="forgot-password">Forgot Password?</a>
+        </div>
+        <div>
+            <button type="submit" class="login">Login</button>
+        </div>
+    </form>
+</body>
+
+</html>

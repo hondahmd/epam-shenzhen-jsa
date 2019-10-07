@@ -1,0 +1,29 @@
+.form-container {
+    height: 500px;
+    width: 600px;
+    border-radius: 50px;
+    padding: 50px;
+}
+
+.title-font {
+    font-size: 30px;    
+}
+
+.input-container {
+    margin-bottom: 10px;
+}
+
+.input-block-container {
+    margin-top: 20px;
+}
+
+.button-container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sign-up-button {
+    width: 80px;
+}
