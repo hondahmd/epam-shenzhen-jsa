@@ -1,0 +1,112 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    margin: auto;
+    max-width: 1000px;
+    height: 100vh;
+}
+
+.header {
+    background-color: #AF39FA;
+    height: 10%;
+    display: flex;
+    align-items: center;
+}
+
+.navCommon {
+    background-color: #00EAFD;
+    height: 50px;
+}
+
+.leftNavs {
+    width: 70%;
+    display: flex;
+}
+
+.rightNavs {
+    width: 30%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav1 {
+    width: 100px;
+    margin-left: 20px;
+}
+
+.nav2 {
+    width: 50px;
+    margin-right: 20px;
+    float: right;
+}
+
+.mainBody {
+    height: 90%;
+    display: flex;
+}
+
+.mainContent {
+    background-color: #FFD345;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+.para {
+    flex: 1;
+}
+
+.redSquares {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.redSquare {
+    background-color: #ED0029;
+    flex: 1;
+    padding-top: 20%; 
+    margin: 2.5%;
+}
+
+.twoParas {
+    flex: 1;
+    display: flex;
+}
+
+.sideBar {
+    background-color: #4AD133;
+    width: 300px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sideButtons {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.sideButton {
+    background-color: #583858;
+    flex: 1;
+    margin-bottom: 10px;
+}
+
+.sideParas {
+    margin-top: 20px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.sidePara {
+    flex: 1;
+}

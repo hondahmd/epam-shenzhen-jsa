@@ -1,0 +1,42 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    margin: auto;
+    width: 1200px;
+    height: 100vh;
+}
+
+.header {
+    background-color: #AF39FA;
+    height: 10%;
+    display: flex;
+    align-items: center;
+}
+
+.nav {
+    width: 100px;
+    height: 50px;
+    background-color: #00EAFD;
+    margin-left: 30px;
+}
+
+.mainBody {
+    width: 100%;
+    height: 90%;
+    display: flex;
+}
+
+.mainContent {
+    background-color: #FFD345;
+    width: 70%;
+    height: 100%;
+}
+
+.sideBar {
+    background-color: #4AD133;
+    width: 30%;
+    height: 100%;
+}
