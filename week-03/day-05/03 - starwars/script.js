@@ -1,24 +1,16 @@
 'use strict';
 
-function addOneToList(newContent, list) {
-    let newEle = document.createElement('li');
-    newContent.forEach(element => {
-        newEle.textContent += element + ' ';
-    });
-    newEle.addEventListener('click', () => {
-        findFilms(charAndFilms[newContent]);
-    });
-    list.appendChild(newEle);
-}
-
 function addAllCharacters(characters) {
+    let charAndFilms = {};
     characters.forEach(character => {
         charAndFilms[character.name] = character.films;
         let newEle = document.createElement('li');
         newEle.textContent = character.name;
         newEle.addEventListener('click', () => {
-            findFilms(charAndFilms[newContent]);
+            movieList.innerHTML = '';
+            findFilms(charAndFilms[character.name]);
         });
+        charList.appendChild(newEle);
     });
 }
 
@@ -32,7 +24,7 @@ function findCharacters(name) {
             if (request.status === 200) {
                 addAllCharacters(JSON.parse(request.response)['results']);
             } else {
-                addOneToList(['no match!'], charList);
+                //addOneToList(['no match!'], charList);
             }
         }
     }
@@ -45,8 +37,12 @@ function findFilm(filmURL) {
     request.send();
     request.onreadystatechange = () => {
         if (request.readyState === 4) {
+            let newFilm = document.createElement('li');
             if (request.status === 200) {
-                
+                newFilm.textContent = `${JSON.parse(request.response)['title']} (${JSON.parse(request.response)['release_date']})`;
+                movieList.appendChild(newFilm);
+            } else {
+
             }
         }
     }
@@ -63,8 +59,9 @@ const button = document.querySelector('button');
 const searchURL = 'https://swapi.co/api/';
 const charList = document.querySelector('.character-names');
 const movieList = document.querySelector('.movie-names');
-let charAndFilms = {};
 
 button.addEventListener('click', () => {
+    charList.innerHTML = '';
+    movieList.innerHTML = '';
     findCharacters(inputBox.value);
 });

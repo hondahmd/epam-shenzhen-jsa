@@ -21,3 +21,15 @@
     height: 50px;
     border-radius: 10px;
 }
+
+.lists {
+    display: flex;
+}
+
+.character-names {
+    flex-grow: 1;
+}
+
+.movie-names {
+    flex-grow: 1;
+}
