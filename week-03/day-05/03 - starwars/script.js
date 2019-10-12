@@ -24,7 +24,9 @@ function findCharacters(name) {
             if (request.status === 200) {
                 addAllCharacters(JSON.parse(request.response)['results']);
             } else {
-                //addOneToList(['no match!'], charList);
+                let noMatch = document.createElement('li');
+                noMatch.textContent = 'no match!';
+                charList.appendChild(noMatch);
             }
         }
     }
