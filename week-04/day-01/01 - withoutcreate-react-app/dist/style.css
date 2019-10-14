@@ -1,0 +1,59 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.content-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+.side-bar {
+    width: 20%;
+    margin-top: 27px;
+    margin-right: 20px;
+}
+
+.hotel-list-container {
+    width: 80%;
+}
+
+.star-rating-container {
+    border: 1px solid black;
+    width: 100%;
+}
+
+.property-type-container {
+    border: 1px solid black;
+    width: 100%;
+}
+
+.hotel-list {
+    width: 100%;
+    height: 100%;
+}
+
+.hotel-info-container {
+    border: 1px solid black;
+    width: 60%;
+    height: 200px;
+    padding: 10px;
+}
+
+.img-and-intro-container {
+    width: 100%;
+    padding: 5px;   
+    display: flex;
+}
+
+.image {
+    width: 160px;
+    height: 160px;
+}
+
+.intro-container {
+    width: 200px;
+    height: 80px;
+    margin-left: 20px;
+}
