@@ -6,7 +6,6 @@ async function getRepositories(url) {
 } 
 
 function* getNextRepository() {
-    console.log(repositories);
     yield repositories.shift();
 }
 
@@ -26,7 +25,7 @@ function addCommits(commits) {
 
 const wholeURL = 'https://api.github.com/orgs/green-fox-academy/repos';
 const commitURL = 'https://api.github.com/repos/green-fox-academy/';
-const myGithubToken = '7b55818d4e6a7dbceb6f79e137acaf748da1c2fa';
+const myGithubToken = '75dbac467b6cab5331e8c0111ecfd7b9eb43740c';
 const button = document.querySelector('button');
 const title = document.querySelector('.repository');
 const commitsDiv = document.querySelector('.commits');
@@ -35,6 +34,7 @@ let headers = new Headers();
 headers.set('Authorization', 'Basic ' + btoa('hondahmd' + ":" + myGithubToken));
 
 button.addEventListener('click', () => {
+    commitsDiv.innerHTML = '';
     let repository = getNextRepository().next().value;
     title.textContent = repository['name'];
     getCommits(`${commitURL}${repository['name']}/commits`);
