@@ -42,14 +42,11 @@ class TodoList extends React.Component {
 
     deleteIssue(event) {
         let copyState = this.deepCopyState();
-        // console.log(copyState);
         delete copyState[event.target.id.split(' ')[0]];
-        // console.log(copyState);
         this.setState(copyState);
     }
 
     render() {
-        console.log(this.state);
         return (
             <>
                 <div className="input-container">
@@ -60,7 +57,7 @@ class TodoList extends React.Component {
                     {Object.keys(this.state).map(issue =>
                         <li className={todoListStyle.issueLine} key={issue}>{issue}
                             <img src={deleteIcon} className={todoListStyle.deleteIcon} onClick={this.deleteIssue} id={issue + ' delete'} alt='delete icon'/>
-                            <img src={this.state.issue ? doneIcon : undoneIcon} className={todoListStyle.doneIcon} onClick={this.finishIssue} id={issue + ' done'} alt='finish icon'/>
+                            <img src={this.state[issue] ? doneIcon : undoneIcon} className={todoListStyle.doneIcon} onClick={this.finishIssue} id={issue + ' done'} alt='finish icon'/>
                         </li>
                     )}
                 </ul>
