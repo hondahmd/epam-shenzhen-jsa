@@ -1,0 +1,80 @@
+/* some basic css styles */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.heading {
+  font-family: 'Lato', sans-serif;
+  font-size: 64px;
+  font-weight: 300;
+  color: #b8b8b8;
+}
+
+.todo-item {
+  font-family: 'Lato', sans-serif;
+  font-size: 26px;
+  line-height: 2.2;
+  color: #b8b8b8;
+}
+
+.button-text {
+  font-family: 'Lato', sans-serif;
+  font-size: 26px;
+  color: #ffffff;
+}
+
+.container {
+  margin: 0 auto;
+  width: 80%;
+  height: 100vh;
+  background-color: #43E2C1;
+  display: flex;
+  justify-content: center;
+}
+
+.todo-container {
+  margin-top: 5vh;
+  width: 50%;
+  height: 80%;
+  background-color: #F7F7F7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.todolist-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+.heading-container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.input-container {
+  margin-top: 30px;
+  width: 80%;
+  height: 10%;
+  border: 3px solid #B6B6B6;
+  display: flex;
+  justify-content: center;
+}
+
+.input-button {
+  background-color: #E06CE4;
+  max-width: 20%;
+  flex-grow: 1;
+}
+
+.input-box {
+  padding: 10px;
+  font-size: 26px;
+  max-width: 80%;
+  flex-grow: 4;
+}

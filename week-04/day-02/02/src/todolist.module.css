@@ -1,0 +1,15 @@
+.deleteIcon {
+    width: 40px;
+    height: 40px;
+}
+
+.doneIcon {
+    width: 30px;
+    height: 30px;
+}
+
+.issueLine {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
