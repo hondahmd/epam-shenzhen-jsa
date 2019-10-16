@@ -78,3 +78,8 @@
   max-width: 80%;
   flex-grow: 4;
 }
+
+.list-container {
+  margin-top: 20px;
+  width: 80%;
+}

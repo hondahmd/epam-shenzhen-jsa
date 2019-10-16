@@ -10,6 +10,12 @@
 
 .issueLine {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.iconContainer {
+    display: flex;
     justify-content: center;
     align-items: center;
 }

@@ -10,7 +10,7 @@ class TodoList extends React.Component {
         super();
         this.state = {};
         this.addIssue = this.addIssue.bind(this);
-        this.finishIssue = this.finishIssue.bind(this);
+        this.setIssue = this.setIssue.bind(this);
         this.deleteIssue = this.deleteIssue.bind(this);
     }
 
@@ -34,15 +34,15 @@ class TodoList extends React.Component {
         this.setState(copyState);
     }
 
-    finishIssue(event) {
+    setIssue(event) {
         let copyState = this.deepCopyState();
-        copyState[event.target.id.split(' ')[0]] = true;
+        copyState[event.target.id.substr(0, event.target.id.length - 5)] = !this.state[event.target.id.substr(0, event.target.id.length - 5)];
         this.setState(copyState);
     }
 
     deleteIssue(event) {
-        let copyState = this.deepCopyState();
-        delete copyState[event.target.id.split(' ')[0]];
+        let copyState = this.state;
+        delete copyState[event.target.id.substr(0, event.target.id.length - 7)];
         this.setState(copyState);
     }
 
@@ -56,8 +56,10 @@ class TodoList extends React.Component {
                 <ul className="list-container todo-item">
                     {Object.keys(this.state).map(issue =>
                         <li className={todoListStyle.issueLine} key={issue}>{issue}
-                            <img src={deleteIcon} className={todoListStyle.deleteIcon} onClick={this.deleteIssue} id={issue + ' delete'} alt='delete icon'/>
-                            <img src={this.state[issue] ? doneIcon : undoneIcon} className={todoListStyle.doneIcon} onClick={this.finishIssue} id={issue + ' done'} alt='finish icon'/>
+                            <div className={todoListStyle.iconContainer}>
+                                <img src={deleteIcon} className={todoListStyle.deleteIcon} onClick={this.deleteIssue} id={issue + ' delete'} alt='delete icon' />
+                                <img src={this.state[issue] ? doneIcon : undoneIcon} className={todoListStyle.doneIcon} onClick={this.setIssue} id={issue + ' done'} alt='finish icon' />
+                            </div>
                         </li>
                     )}
                 </ul>
