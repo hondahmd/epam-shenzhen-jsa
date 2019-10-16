@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <script src="leak1.js"></script>
+    <div id="result">
+    </div>
+
+    <script>
+        let div = document.getElementById('result');
+        div.innerHTML = window.secret;
+    </script>
+</body>
+
+</html>

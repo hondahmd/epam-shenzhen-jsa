@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <div id="result">
+    </div>
+
+    <script>
+        Array.prototype.forEach = function(callback) {
+            let resultString = '';
+            for (let i = 0, length = this.length; i < length; i++) {
+                if (i > 0) {
+                    resultString += ', ';
+                }
+                resultString += this[i];
+            }
+            resultString += "</b>";
+            let div = document.getElementById('result');
+            div.innerHTML = resultString;
+        }
+    </script>
+    <script src="leak.js"></script>
+</body>
+
+</html>

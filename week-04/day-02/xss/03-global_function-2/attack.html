@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <div id="result">
+    </div>
+
+    <script>
+        function globalFunction(callback) {
+            let div = document.getElementById('result');
+            let funcString = callback.toString();
+            div.innerHTML = funcString;
+        }
+    </script>
+    <script src="leak.js"></script>
+</body>
+
+</html>
