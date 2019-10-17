@@ -66,9 +66,12 @@ class GalleryApp extends React.Component {
                     </div>
                     <div className="thumbnail-bar-container" onClick={this.clickOnThumbnail}>
                         {this.state.imageList.map((image, index) => 
-                            <div className={index === this.state.viewerImgIndex ? galleryStyle.selectedThumbnail : "thumbnail-img-container"}>
+                        <div className={index === this.state.viewerImgIndex ? galleryStyle.selectedThumbnail : ''}>
+                            {index === this.state.viewerImgIndex && <div className={galleryStyle.triangleDiv}/>}
+                            <div className="thumbnail-img-container">
                                 <img src={image.getTbImgLink()} key={"tbImg" + index} id={"tbImg " + index} alt={image.getWorkName()}
-                                className={galleryStyle.unselectedThumbnailImg} />
+                                className={galleryStyle.thumbnailImg} />
+                            </div>
                             </div>
                         )}
                     </div>

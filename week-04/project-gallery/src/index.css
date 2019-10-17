@@ -61,9 +61,10 @@
 }
 
 .thumbnail-img-container {
-  background-image: linear-gradient(#FFFFFF, #F0EFF0);
+  background-image: linear-gradient(#FFFFFF, #c1c1c1);
   margin: 10px;
   width: 90px;
   height: 90px;
   box-shadow: 0px 5px 5px  #313131;
+  border-radius: 4px;
 }
