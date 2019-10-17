@@ -1,0 +1,14 @@
+.rightSlideBar {
+    transform: rotate(180deg);
+}
+
+.descriptionTitle {
+    color: #FFFFFF;
+    margin: 20px;
+}
+
+.description {
+    color: #FFFFFF;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 20px;
+}
