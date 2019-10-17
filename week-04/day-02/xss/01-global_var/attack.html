@@ -6,13 +6,13 @@
 </head>
 
 <body>
-    <script src="leak1.js"></script>
     <div id="result">
     </div>
 
+    <script src="leak.js"></script>
     <script>
-        let div = document.getElementById('result');
-        div.innerHTML = window.secret;
+        var div = document.getElementById('result');
+        div.innerHTML = window.mysecret;
     </script>
 </body>
 

@@ -1,5 +1,7 @@
 'use strict';
 
 function secret() {
-    window.secret = 'dbuoajfhiuwrajngjkan';
+    window.mysecret = 'dbuoajfhiuwrajngjkan';
 }
+
+secret();

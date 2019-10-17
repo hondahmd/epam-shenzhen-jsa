@@ -7,6 +7,8 @@ class NewsApp extends React.Component {
         super();
     }
 
+    
+
     render() {
         return (
             <ul>
