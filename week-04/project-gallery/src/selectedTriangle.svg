@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 15" width="30" height="15">
+	<defs>
+		<image width="30" height="15" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAPAgMAAACO1JcPAAAAAXNSR0IB2cksfwAAAAxQTFRF/v7+/v7+/v7+/v7+HLQfGwAAAAR0Uk5TAKCf/7EwQqIAAABASURBVHicLcq5AQAxDAJBnJzKcKm6UlWGI+EHSNhgAOCDN39Hln5wKYJtQgolWSIUihNtIpQ3SuSheNEmF6WiNr52N8/Ts+DTAAAAAElFTkSuQmCC"/>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+	</style>
+	<path fill="#FFFFFF"/>
+	<use id="形状 1" href="#img1" x="0" y="0" />
+</svg>

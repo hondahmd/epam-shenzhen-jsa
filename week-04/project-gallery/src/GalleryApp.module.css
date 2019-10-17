@@ -3,12 +3,28 @@
 }
 
 .descriptionTitle {
-    color: #FFFFFF;
+    color: rgba(255, 255, 255, 1);
+    font-family: Arial, Helvetica, sans-serif;
     margin: 20px;
 }
 
 .description {
-    color: #FFFFFF;
-    font-family: 'Courier New', Courier, monospace;
+    color: rgba(255, 255, 255, 0.5);
+    font-family: Arial, Helvetica, sans-serif;
     margin: 20px;
+}
+
+.selectedThumbnail {
+    border-image: url('./selectedTriangle.svg');
+    margin: 10px;
+    margin-top: 0px;
+    width: 90px;
+    height: 90px;
+    box-shadow: 0px 5px 5px  #313131;
+}
+
+.unselectedThumbnailImg {
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
 }

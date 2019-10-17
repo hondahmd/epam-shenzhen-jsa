@@ -46,27 +46,24 @@
 }
 
 .description-container {
-  background-color: #313131;
+  background-color: rgba(33, 32, 32, 0.5);
   width: 900px;
   height: 150px;
   position: absolute;
-  opacity: 0.5;
   z-index: 1;
 }
 
 .thumbnail-bar-container {
   margin-top: 30px;
-  width: 650px;
+  width: 730px;
   height: 100px;
   display: flex;
 }
 
 .thumbnail-img-container {
+  background-image: linear-gradient(#FFFFFF, #F0EFF0);
   margin: 10px;
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 90px;
   box-shadow: 0px 5px 5px  #313131;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
